@@ -5,11 +5,9 @@ An assertion declares that a condition be `true` before executing subsequent cod
 - If the condition resolves to `true` the code continues running.
 - If the condition resolves to `false` an error will be thrown.
 
-## Functions
+## Exports
 
-TypeScript supports the `asserts` keyword, for use in the return statement of [assertion functions](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions).
-
-### assert
+### `assert()`
 
 Asserts that a condition is `true`, ensuring that whatever condition is being checked must be true for the remainder of the containing scope.
 
@@ -28,7 +26,8 @@ The goal is to promote consideration from consumers when dealing with potentiall
 The `assert` function has a default message:
 
 ```ts
-assert(false);
+let falsyValue = '';
+assert(typeof falsyValue === 'string' && falsyValue.length > 0);
 // → TypeError: Assert failed
 ```
 
@@ -40,7 +39,7 @@ assert(falsyValue >= 0, `Expected a non-negative number, but received: ${falsyVa
 // → TypeError: Expected a non-negative number, but received: -1
 ```
 
-### assertNever
+### `assertNever()`
 
 Asserts that allegedly unreachable code has been executed.
 
@@ -64,13 +63,13 @@ function doThing(type: 'draft' | 'published') {
 }
 ```
 
-> **Note**: Regardless of the condition, this function **always** throws.
+> **Warning**: Regardless of the condition, this function **always** throws.
 
 ```ts
 doThing('archived');
 // → Error: Unexpected call to assertNever: 'archived'
 ```
 
-### Debugging
+## Debugging
 
 In **development** both `assert` and `assertNever` will include a [debugger statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger), which will pause execution to aid debugging.
