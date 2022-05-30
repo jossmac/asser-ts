@@ -1,0 +1,49 @@
+{
+  "name": "asser-ts",
+  "version": "1.0.0",
+  "description": "Assertion functions for TS.",
+  "main": "dist/asser-ts.cjs.js",
+  "module": "dist/asser-ts.esm.js",
+  "repository": "https://github.com/jossmac/asser-ts.git",
+  "author": "jossmac <jossmac@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "format": "prettier --write ./src",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --collect-coverage",
+    "open:coverage": "open coverage/lcov-report/index.html",
+    "lint:eslint": "eslint ./src --ext .js,.ts",
+    "lint:prettier": "prettier --check ./src",
+    "lint:types": "tsc",
+    "lint": "yarn lint:prettier && yarn lint:eslint && yarn lint:types",
+    "prepublishOnly": "preconstruct build"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testRegex": "/.*test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "@preconstruct/cli": "^2.1.5",
+    "@types/jest": "^27.5.1",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "jest": "^28.1.0",
+    "prettier": "2.6.2",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.7.2"
+  }
+}
