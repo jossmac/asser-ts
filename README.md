@@ -1,3 +1,5 @@
+Superseded by [Emery](https://github.com/thinkmill/emery).
+
 # asser-ts
 
 An assertion declares that a condition be `true` before executing subsequent code.
